@@ -1,0 +1,204 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+header {
+  height: 200px;
+}
+
+#article__container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#product__container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pictureBox {
+  width: 95%;
+  height: 65%;
+}
+
+.picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.itemBox-0 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  width: 400px;
+  height: 350px;
+  border: solid gray;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.itemBox-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  width: 400px;
+  height: 350px;
+  border: solid gray;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.itemBox-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  width: 400px;
+  height: 350px;
+  border: solid gray;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.itemBox-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  width: 400px;
+  height: 350px;
+  border: solid gray;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.itemBox-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 25px;
+  width: 400px;
+  height: 350px;
+  border: solid gray;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+}
+
+.title {
+  font-size: 2em;
+  text-align: center;
+}
+
+.description {
+  padding: 5px;
+}
+
+.price {
+  padding: 5px;
+}
+
+.productlink {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+#cartItems {
+  width: 80%;
+  background-color: rgba(97, 11, 11, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.itemRow {
+  display: flex;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(110, 46, 46, 0.7);
+}
+
+.itemTitle {
+  width: 25%;
+}
+
+.itemPrice {
+  width: 25%;
+}
+
+.thisProductAmount {
+  width: 25%;
+}
+
+.productQuantity {
+  width: 25%;
+}
+
+.furnitureButton {
+  width: 50%;
+  padding: 5px;
+  border-radius: 15px;
+  font-size: 1em;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,78 @@
+@import "../utils/mixins.scss";
+#article__container{
+    @include FlexSpaceEvenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+#product__container{
+    @include FlexSpaceEvenly;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.pictureBox{
+    width: 95%;
+    height: 65%;
+}
+.picture{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+@for $i from 0 through 4 {
+    .itemBox-#{$i}{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include cardMargin;
+        width: 400px;
+        height: 350px;
+        border: solid gray;
+        border-radius: 20px;
+        box-shadow: 10px 5px 5px gray;
+    }
+}
+.title{
+    font-size: 2em;
+    text-align: center;
+}
+.description{
+    padding: 5px;
+}
+.price{
+    padding: 5px;
+}
+.productlink{
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+#cartItems{
+    width: 80%;
+    background-color: rgba($color: #610b0b, $alpha: 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 25px;
+}
+.itemRow{
+    display: flex;
+    padding: 5px 0 5px 0;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba($color: #6e2e2e, $alpha: 0.7)
+}
+.itemTitle{
+    width: 25%;
+}
+.itemPrice{
+    width: 25%;
+}
+.thisProductAmount{
+    width: 25%;
+}
+.productQuantity{
+    width:25%
+}
