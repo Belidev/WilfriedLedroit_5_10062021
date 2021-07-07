@@ -5,14 +5,16 @@ const button = document.getElementById("furnitureButton");
 let getProductContainer = document.getElementById("product__container").innerHTML;
 
 /* Récupération du produit avec l'id associé depuis le serveur */ 
-
 fetch(`http://localhost:3000/api/furniture/${idParams}`)
     .then((response) => response.json())
     .then(response => {
+        //utilisation de la réponse, pour la génération du HTML
         let productHTML ="";
         let quantityHTML="";
         let html="";
+        //déclaration d'une constante contenant un tableau des différents éléments du produit
         const arrayProduct = response.varnish;
+        //création du HTML, à incorporer dans le product__container
         html += `<div class="itemBox">
                     <h2 class="title">${response.name}</h2>
                     <div class="pictureBox"><img class ="picture" src="${response.imageUrl}" alt="images de meubles en chêbe"></div>
@@ -29,9 +31,12 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
                         </form>
                     <button id="furnitureButton">Ajouter ce produit au panier</button>
                 </div>`;
-        document.getElementById("product__container").innerHTML = html
+            //intégration du contenu HTML dans le product__container
+            document.getElementById("product__container").innerHTML = html
+            //boucle qui génère le HTML des différentes options, selon la constante arrayProduct
             for(let i = 0; i < arrayProduct.length; i++) {
             productHTML += `<option>${arrayProduct[i]}`
+            //intégration du HTML généré par la boucle dans le 
             document.getElementById("options").innerHTML = productHTML;
             }
         quantityHTML +=
@@ -44,6 +49,6 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
         const button = document.getElementById("furnitureButton")
         button.onclick = function(){
             let productStorage = JSON.stringify([response.name, quantity.value , response.price/100]);
-            localStorage.setItem(`product${idParams}`, productStorage)
+            localStorage.setItem(`${idParams}`, productStorage)
         }})
 
