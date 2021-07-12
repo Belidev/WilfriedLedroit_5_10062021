@@ -21,7 +21,7 @@ function getCity(){
 function orderDisplay(){
     orderBox.innerHTML += 
     `<p class = "customerThanks">Félicitation pour votre achat ${getFirstName()} ${getLastName()}  ! et merci de faire confiance à Orinoco! </p></br>
-    <p> votre numéro de commande est le : ${orderId} pour un prix total de ${totalAmount}€. <br/>
+    <p> votre numéro de commande est le : </br><strong class="idOrder">${orderId}</strong> </br>pour un prix total de ${totalAmount}€. <br/>
     Cette commande sera livrée au ${getAddress()} dans la ville de ${getCity()}.</br>
     <button id="clearStorageToIndex">pour réaliser une autre commande, cliquez ici!</button>`
 }

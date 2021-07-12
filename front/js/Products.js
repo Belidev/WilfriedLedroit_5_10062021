@@ -1,7 +1,7 @@
 /* Récupération de l'id du produit sélectionné dans la page précédente */
 let params = new URLSearchParams(window.location.search);
+//définition du constante, qui hébergera l'ID du produit
 const idParams = params.get("id");
-const button = document.getElementById("furnitureButton");
 let getProductContainer = document.getElementById("product__container").innerHTML;
 
 /* Récupération du produit avec l'id associé depuis le serveur */ 
@@ -12,24 +12,29 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
         let productHTML ="";
         let quantityHTML="";
         let html="";
-        //déclaration d'une constante contenant un tableau des différents éléments du produit
+        //déclaration d'une constante contenant un tableau des différentes options du produit
         const arrayProduct = response.varnish;
         //création du HTML, à incorporer dans le product__container
         html += `<div class="itemBox">
                     <h2 class="title">${response.name}</h2>
                     <div class="pictureBox"><img class ="picture" src="${response.imageUrl}" alt="images de meubles en chêbe"></div>
                     <p class="description">${response.description}</p>
-                    <p class="price">${(response.price/100)}€</p>
-                        <form class="choice">
-                            <select id ="options" name = "productChoices">
-                            </select>
-                        </form>
-                        <form>
-                        <p class="quantityDescription">choisissez la quantité</p>
-                            <select id ="quantity">
-                            </select>
-                        </form>
-                    <button id="furnitureButton">Ajouter ce produit au panier</button>
+                    <div class ="optionsBox">
+                        <p class="price">Prix du produit à l'unité : ${(response.price/100)}€</p>
+                            <form class="choice">
+                            <p>Choissisez votre vernis :
+                                <select id ="options" name = "productChoices">
+                                </select>
+                            </form>
+                            </p>
+                            <form class ="quantityForm">
+                            <p class="quantityDescription">choisissez la quantité
+                                <select id ="quantity">
+                                </select>
+                            </form>
+                            </p>
+                        <button id="addFurnitureButton">Ajouter ce produit au panier</button>
+                    </div>
                 </div>`;
             //intégration du contenu HTML dans le product__container
             document.getElementById("product__container").innerHTML = html
@@ -46,7 +51,9 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
         <option>4</option>
         <option>5</option>`;
         document.getElementById("quantity").innerHTML = quantityHTML;
-        const button = document.getElementById("furnitureButton")
+        //constante qui cible le bouton "addFurnitureButton"
+        const button = document.getElementById("addFurnitureButton")
+        //fonction qui, après un click sur button, envoit le nom, la valeur du produit récupéré ainsi que son prix, vers le localstorage. 
         button.onclick = function(){
             let productStorage = JSON.stringify([response.name, quantity.value , response.price/100]);
             localStorage.setItem(`${idParams}`, productStorage)

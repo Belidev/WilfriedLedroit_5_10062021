@@ -1,13 +1,11 @@
-//fetch//
-const URL = 
-fetch('http://localhost:3000/api/furniture')
-  .then((response) => response.json())
-  .then((response) => {
-  //affichage de la réponse dans la console//
-    console.table(response);
-    //déclaration de la variable HTML, qui va stocker les éléments HTML nécessaires//
+//déclaration de la fonction fetch, qui affiche également le HTML correspondant//
+function allProductsDisplay(){
+  fetch('http://localhost:3000/api/furniture')
+    .then((response) => response.json())
+    .then((response) => {
+    //déclaration de la variable html, qui va stocker les éléments HTML nécessaires//
     let html = "";
-    //boucle qui duplique le HTML en fonction des index de la requete fetch//
+    //boucle qui duplique le HTML en fonction des index des résultats la requête fetch//
     for(let i = 0; i < response.length; i++) {
       html += `<div class="itemBox-${[i]}">
       <h2 class="title">${response[i].name}</h2>
@@ -21,6 +19,8 @@ fetch('http://localhost:3000/api/furniture')
     document.getElementById("article__container").innerHTML = html
 })
 //erreur//
-.catch(e => {
-  errorMessage();
-});
+  .catch(e => {
+    errorMessage();
+  })};
+//Appel des fonctions
+allProductsDisplay();

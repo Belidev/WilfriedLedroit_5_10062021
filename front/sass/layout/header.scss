@@ -1,3 +1,17 @@
-header{
-    height: 200px;
+.headerPictureBox{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.headerPicture{
+    object-fit: cover;
+    width: 100%;
+    border-radius: 0 0 50px 50px;
+    @media screen and (min-width: 700px){
+        width: 75%;
+        border-radius: 50px;
+    }
+    @media screen and (min-width: 1280px){
+        width: 50%;
+    }
 }
