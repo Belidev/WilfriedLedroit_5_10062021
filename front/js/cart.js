@@ -46,11 +46,19 @@ function displayTotalPrice(){
 }
 //fonction qui déclenche la fonction sendOrder via le bouton "sendingForm"
 function orderButton(){
-    const sendingButton = document.getElementById("sendingForm")
-    sendingButton.addEventListener('submit', function (event) {
-        event.preventDefault()
-        sendOrder();
-    })
+    const formButton = document.getElementById("sendingForm")
+    formButton.addEventListener('click', e => {
+        if (document.getElementById("firstName").value =="" ||
+            document.getElementById("lastName").value =="" ||
+            document.getElementById("address").value =="" ||
+            document.getElementById("city").value =="" ||
+            document.getElementById("email").value ==""){
+            console.log("error")
+            return false
+        }
+        e.preventDefault()
+        sendOrder()
+      })
 }
 //fonction qui permet au bouton "resetButton" de purger le localStorage, et de recharger la page
 function resetStorage(){
@@ -82,7 +90,6 @@ function displayBoxItemsEvent(){
     <a class="indexLink" href="../index.html"><button class="buttonToIndex">Cliquer ici pour revenir vers l'accueil</button></a>
     </div>`
     }
-//définit les objets à envoyer au serveur
 }
 function sendOrder(){
     function getAllId(){
