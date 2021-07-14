@@ -1,3 +1,8 @@
+const firstNameField = document.getElementById("firstName")
+const lastNameField = document.getElementById("lastName")
+const addressField = document.getElementById("address")
+const cityField = document.getElementById("city")
+const emailField = document.getElementById("email")
 //fonction qui récupère chaque clef du localstorage, en fonction de l'argument
 function getKey(index){
     return localStorage.key(index);
@@ -25,7 +30,6 @@ function getProductAmount(index){
 }
 //récupération du tableau de valeurs de la clef concernée, dans le localstorage
 const boxItems = document.getElementById("cartItems")
-
 //affichage du HTML de l'article CartItems, définit par la constante boxItems
 function displayProduct(index){
     boxItems.innerHTML += `<div class="itemRow">
@@ -39,6 +43,12 @@ function displayProduct(index){
 function cartResetDisplay(){
     boxItems.insertAdjacentHTML("beforeend", `<button id = "resetButton"> annuler votre panier </button>`)
 }
+//fonction qui calcule le prix total, sur tous les produits sélectionnés
+function getAllPrice(){
+    let allPrice = 0
+        for (let i = 0 ; i < localStorage.length; i++){
+        allPrice += getProductAmount(i)}
+    return allPrice}
 //fonction qui permet d'afficher le prix total de la commande, en utilisant la fonction getAllPrice
 function displayTotalPrice(){
     const totalPriceBox = document.getElementById("totalPrice")
@@ -47,13 +57,16 @@ function displayTotalPrice(){
 //fonction qui déclenche la fonction sendOrder via le bouton "sendingForm"
 function orderButton(){
     const formButton = document.getElementById("sendingForm")
+    let regexName = new RegExp(/^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ-]{1,30}$/)
+    let regexAddress = new RegExp(/^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ ._\s-]{5,60}$/)
+    let regexMail = new RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/)
     formButton.addEventListener('click', e => {
-        if (document.getElementById("firstName").value =="" ||
-            document.getElementById("lastName").value =="" ||
-            document.getElementById("address").value =="" ||
-            document.getElementById("city").value =="" ||
-            document.getElementById("email").value ==""){
-            console.log("error")
+        if (regexName.test(firstNameField.value) == false ||
+            regexName.test(lastNameField.value) == false ||
+            regexAddress.test(addressField.value) == false ||
+            regexAddress.test(cityField.value) == false ||
+            regexMail.test(emailField.value) == false){
+            window.alert("veuillez remplir correctement les champs du formulaire")
             return false
         }
         e.preventDefault()
@@ -68,12 +81,6 @@ function resetStorage(){
         localStorage.clear()
         window.location.reload("./cart.html")
 })}
-//fonction qui calcule le prix total, sur tous les produits sélectionnés
-function getAllPrice(){
-    let allPrice = 0
-        for (let i = 0 ; i < localStorage.length; i++){
-        allPrice += getProductAmount(i)}
-    return allPrice}
 //fonction qui indique que le localStorage n'est pas vide
 function cardisNotEmpty(){
     return localStorage.length > 0
@@ -108,7 +115,7 @@ function sendOrder(){
             'email': document.getElementById("email").value
         }
     let customerForm = JSON.stringify({products, contact});
-    //utilisation de fetch pour envoyer le formulaire au serveur, récupère la réponse dans la sessionStorage, puis charge la page confirmation.html
+    //utilisation de fetch pour envoyer le formulaire au serveur, récupère la réponse dans le sessionStorage, puis charge la page confirmation.html
     fetch('http://localhost:3000/api/furniture/order', {
       method: 'POST',
       headers: {

@@ -10,7 +10,7 @@
     <body>
         <header>
             <div class ="headerPictureBox">
-                <img class ="headerPicture" src="../front/img/logo.webp"></img>
+                <img class ="headerPicture" src="./img/logo.webp"></img>
             </div>
         </header>
         <main>
@@ -21,13 +21,13 @@
             <article id ="formBox">
                 <form id = "customerForm">
                     <label for="nom">Prénom : </label>
-                    <input type="text" id="firstName" name="firstName" placeholder="ex: Pierre" required/></br>
+                    <input type="text" id="firstName" name="firstName" placeholder="ex: Pierre" pattern="[a-z]" required/></br>
                     <label for="nom">Nom : </label>
-                    <input type="text" id="lastName" name="lastName" placeholder="ex: Dupont" required/></br>
+                    <input type="text" id="lastName" name="lastName" placeholder="ex: Dupont" pattern="[a-z]" required/></br>
                     <label for="nom">adresse : </label>
-                    <input type="text" id="address" name="address" placeholder="ex: 12 rue de Paris" required/></br>
+                    <input type="text" id="address" name="address" placeholder="ex: 12 rue de Paris" pattern="[a-z]" required/></br>
                     <label for="nom">ville : </label>
-                    <input type="text" id="city" name="city" placeholder="ex: Paris" required/></br>
+                    <input type="text" id="city" name="city" placeholder="ex: Paris" pattern="[a-z]" required/></br>
                     <label for="nom">Email : </label>
                     <input type="email" id="email" name="email" placeholder="123@gmail.com" required/></br>
                     <button id ="sendingForm">Valider</button>

@@ -19,8 +19,8 @@ function allProductsDisplay(){
     document.getElementById("article__container").innerHTML = html
 })
 //erreur//
-  .catch(e => {
-    errorMessage();
+  .catch(error => {
+    window.alert("erreur de connexion au serveur, veuillez réessayer ultérieurement");
   })};
 //Appel des fonctions
 allProductsDisplay();
