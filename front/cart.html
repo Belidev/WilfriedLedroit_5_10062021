@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang ="fr">
     <head>
         <meta charset="utf-8">
         <title>Votre panier</title>
@@ -10,7 +10,7 @@
     <body>
         <header>
             <div class ="headerPictureBox">
-                <img class ="headerPicture" src="./img/logo.webp"></img>
+                <img class ="headerPicture" src="./img/logo.webp" alt="logo orinoco">
             </div>
         </header>
         <main>
@@ -20,23 +20,23 @@
             </article>
             <article id ="formBox">
                 <form id = "customerForm">
-                    <label for="nom">Prénom : </label>
-                    <input type="text" id="firstName" name="firstName" placeholder="ex: Pierre" pattern="[a-z]" required/></br>
-                    <label for="nom">Nom : </label>
-                    <input type="text" id="lastName" name="lastName" placeholder="ex: Dupont" pattern="[a-z]" required/></br>
-                    <label for="nom">adresse : </label>
-                    <input type="text" id="address" name="address" placeholder="ex: 12 rue de Paris" pattern="[a-z]" required/></br>
-                    <label for="nom">ville : </label>
-                    <input type="text" id="city" name="city" placeholder="ex: Paris" pattern="[a-z]" required/></br>
-                    <label for="nom">Email : </label>
-                    <input type="email" id="email" name="email" placeholder="123@gmail.com" required/></br>
+                    <label for="firstName">Prénom : </label>
+                    <input type="text" id="firstName" name="firstName" placeholder="ex: Pierre" pattern="[a-z]" required/><br>
+                    <label for="lastName">Nom : </label>
+                    <input type="text" id="lastName" name="lastName" placeholder="ex: Dupont" pattern="[a-z]" required/><br>
+                    <label for="address">adresse : </label>
+                    <input type="text" id="address" name="address" placeholder="ex: 12 rue de Paris" pattern="[a-z]" required/><br>
+                    <label for="city">ville : </label>
+                    <input type="text" id="city" name="city" placeholder="ex: Paris" pattern="[a-z]" required/><br>
+                    <label for="email">Email : </label>
+                    <input type="email" id="email" name="email" placeholder="123@gmail.com" required/><br>
                     <button id ="sendingForm">Valider</button>
                 </form>
             </article>
         </main>
         <footer>
             <div class ="footerPictureBox">
-                <img class ="footerPicture" src="./img/logo.webp"></img>
+                <img class ="footerPicture" src="./img/logo.webp" alt="logo orinoco">
             </div>
         </footer>
         <script src="./js/cart.js" async defer></script>

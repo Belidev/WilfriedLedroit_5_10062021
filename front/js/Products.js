@@ -3,7 +3,19 @@ let params = new URLSearchParams(window.location.search);
 //définition du constante, qui hébergera l'ID du produit
 const idParams = params.get("id");
 let getProductContainer = document.getElementById("product__container").innerHTML;
-
+// bouton vers l'accueil
+function buttonToIndex() {
+    const buttonToIndex = document.getElementById("buttonToIndex")
+    buttonToIndex.addEventListener('click', e => {
+        window.location.assign("../index.html")
+    })
+}
+function buttonToCart() {
+    const buttonToIndex = document.getElementById("validationButton")
+    buttonToIndex.addEventListener('click', e => {
+        window.location.assign("./cart.html")
+    })
+}
 /* Récupération du produit avec l'id associé depuis le serveur */ 
 fetch(`http://localhost:3000/api/furniture/${idParams}`)
     .then((response) => response.json())
@@ -31,8 +43,8 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
                             <p class="quantityDescription">choisissez la quantité
                                 <select id ="quantity">
                                 </select>
-                            </form>
                             </p>
+                            </form>
                         <button id="addFurnitureButton">Ajouter ce produit au panier</button>
                     </div>
                 </div>`;
@@ -58,4 +70,7 @@ fetch(`http://localhost:3000/api/furniture/${idParams}`)
             let productStorage = JSON.stringify([response.name, quantity.value , response.price/100]);
             localStorage.setItem(`${idParams}`, productStorage)
         }})
+//appel des fonctions
+buttonToIndex()
+buttonToCart()
 
